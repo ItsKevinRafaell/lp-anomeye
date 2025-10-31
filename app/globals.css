@@ -1,16 +1,55 @@
 @import "tailwindcss";
 
 :root {
-  --surface-base: #f4f6fb;
-  --surface-elevated: #ffffff;
-  --surface-inverse: #04080f;
+  color-scheme: light;
+  --surface-base: #eef2ff;
+  --surface-panel: rgba(255, 255, 255, 0.78);
+  --surface-card: rgba(255, 255, 255, 0.64);
+  --surface-chip: rgba(255, 255, 255, 0.54);
+  --surface-overlay: rgba(255, 255, 255, 0.32);
+  --surface-contrast: #04080f;
+  --surface-footer: #04080f;
+  --text-strong: #05060a;
   --text-primary: #0b1120;
   --text-muted: #4a5568;
-  --border-subtle: rgba(7, 12, 24, 0.08);
+  --text-on-contrast: #f7f9ff;
+  --border-subtle: rgba(12, 35, 64, 0.14);
+  --glass-border: rgba(255, 255, 255, 0.45);
+  --glass-border-subtle: rgba(255, 255, 255, 0.22);
   --brand-primary: #0b5ed7;
   --brand-primary-strong: #0a3aa9;
   --brand-highlight: #14a3ff;
-  --shadow-soft: 0 24px 60px rgba(7, 18, 63, 0.08);
+  --shadow-soft: 0 24px 60px rgba(7, 18, 63, 0.12);
+  --shadow-glass: 0 48px 140px rgba(9, 22, 63, 0.2);
+  --footer-heading: #f7f9ff;
+  --footer-text: rgba(247, 249, 255, 0.78);
+  --footer-subtle: rgba(247, 249, 255, 0.48);
+}
+
+body[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-base: #020510;
+  --surface-panel: rgba(8, 16, 32, 0.72);
+  --surface-card: rgba(14, 28, 60, 0.62);
+  --surface-chip: rgba(22, 36, 72, 0.6);
+  --surface-overlay: rgba(37, 59, 108, 0.35);
+  --surface-contrast: rgba(240, 244, 255, 0.92);
+  --surface-footer: rgba(5, 10, 22, 0.94);
+  --text-strong: #f5f8ff;
+  --text-primary: #e1e6f7;
+  --text-muted: rgba(198, 206, 240, 0.76);
+  --text-on-contrast: #0a1224;
+  --border-subtle: rgba(120, 146, 198, 0.28);
+  --glass-border: rgba(120, 146, 198, 0.36);
+  --glass-border-subtle: rgba(120, 146, 198, 0.22);
+  --brand-primary: #3b82f6;
+  --brand-primary-strong: #2563eb;
+  --brand-highlight: #60a5fa;
+  --shadow-soft: 0 24px 60px rgba(2, 12, 38, 0.6);
+  --shadow-glass: 0 48px 140px rgba(2, 15, 48, 0.5);
+  --footer-heading: #f5f8ff;
+  --footer-text: rgba(225, 230, 247, 0.78);
+  --footer-subtle: rgba(225, 230, 247, 0.4);
 }
 
 @theme inline {
@@ -25,11 +64,21 @@ html {
 }
 
 body {
-  background: var(--surface-base);
+  position: relative;
+  margin: 0;
+  background: radial-gradient(
+      circle at top left,
+      var(--surface-overlay),
+      transparent 55%
+    ),
+    radial-gradient(circle at 110% 10%, var(--surface-overlay), transparent 45%),
+    var(--surface-base);
   color: var(--text-primary);
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
   line-height: 1.6;
-  margin: 0;
+  transition:
+    background 300ms ease,
+    color 300ms ease;
 }
 
 .font-heading {
@@ -49,4 +98,37 @@ a {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+.glass-panel {
+  background: var(--surface-panel);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+  backdrop-filter: blur(28px) saturate(140%);
+  -webkit-backdrop-filter: blur(28px) saturate(140%);
+}
+
+.glass-card {
+  background: var(--surface-card);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+}
+
+.glass-chip {
+  background: var(--surface-chip);
+  border: 1px solid var(--glass-border-subtle);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 12px 30px rgba(12, 22, 44, 0.12);
+}
+
+.glass-divider {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-subtle),
+    transparent
+  );
 }

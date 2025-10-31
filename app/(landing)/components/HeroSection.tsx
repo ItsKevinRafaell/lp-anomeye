@@ -27,14 +27,16 @@ export function HeroSection({
   return (
     <section
       id={id}
-      className="relative overflow-hidden bg-[var(--surface-elevated)] px-6 pb-20 pt-28 text-[var(--text-primary)] shadow-[var(--shadow-soft)] sm:px-10 lg:px-16 lg:pb-28 lg:pt-36"
+      className="relative overflow-hidden px-6 pb-20 pt-28 text-[var(--text-primary)] sm:px-10 lg:px-16 lg:pb-28 lg:pt-36"
     >
+      <span className="pointer-events-none absolute -left-24 top-16 hidden h-96 w-96 rounded-full bg-[var(--brand-highlight)]/25 blur-3xl lg:block" />
+      <span className="pointer-events-none absolute right-[-18rem] top-1/3 h-80 w-80 rounded-full bg-[var(--brand-primary)]/15 blur-3xl sm:right-[-12rem]" />
       <div className="mx-auto flex max-w-6xl flex-col gap-16 lg:flex-row lg:items-center">
         <div className="flex-1 space-y-8">
-          <span className="inline-flex items-center rounded-full border border-[var(--border-subtle)] bg-white/80 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)]">
+          <span className="inline-flex items-center rounded-full border border-[var(--glass-border-subtle)] bg-[var(--surface-chip)] px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)] backdrop-blur-lg">
             {eyebrow}
           </span>
-          <h1 className="font-heading text-4xl font-semibold tracking-tight text-[var(--surface-inverse)] sm:text-5xl lg:text-[3.5rem]">
+          <h1 className="font-heading text-4xl font-semibold tracking-tight text-[var(--text-strong)] sm:text-5xl lg:text-[3.5rem]">
             {headline}
           </h1>
           <p className="max-w-2xl text-lg text-[var(--text-muted)] lg:text-xl">
@@ -44,7 +46,7 @@ export function HeroSection({
             {bullets.map((bullet) => (
               <li
                 key={bullet}
-                className="flex items-start gap-3 rounded-xl border border-[var(--border-subtle)] bg-white/70 px-4 py-3 shadow-sm backdrop-blur-sm"
+                className="glass-chip flex items-start gap-3 rounded-2xl px-4 py-3 text-sm"
               >
                 <span className="mt-1 h-2 w-2 rounded-full bg-[var(--brand-primary)]" />
                 <span className="font-medium">{bullet}</span>
@@ -69,18 +71,18 @@ export function HeroSection({
           </div>
         </div>
         <div className="relative flex-1">
-          <div className="relative overflow-hidden rounded-3xl border border-[var(--border-subtle)] bg-gradient-to-br from-white via-white to-[#dce5ff] p-8 shadow-[var(--shadow-soft)]">
-            <div className="absolute inset-x-8 inset-y-10 rounded-3xl border border-white/40" />
+          <div className="glass-card relative overflow-hidden rounded-3xl p-8">
+            <div className="absolute inset-x-8 inset-y-10 rounded-3xl border border-[var(--glass-border-subtle)]" />
             <div className="relative space-y-4 text-sm text-[var(--text-muted)]">
               <div className="flex items-center justify-between">
                 <span className="font-heading text-xs uppercase tracking-[0.4em] text-[var(--brand-primary-strong)]">
                   Operational View
                 </span>
-                <span className="rounded-full bg-[var(--brand-primary)]/10 px-3 py-1 font-medium text-[var(--brand-primary-strong)]">
+                <span className="rounded-full bg-[var(--brand-primary)]/15 px-3 py-1 font-medium text-[var(--brand-primary-strong)]">
                   Live
                 </span>
               </div>
-              <div className="grid gap-3 rounded-2xl bg-white/60 p-4 backdrop-blur">
+              <div className="glass-chip grid gap-3 rounded-2xl p-4 shadow-none">
                 <div className="flex items-center justify-between">
                   <span className="font-heading text-sm text-[var(--text-primary)]">
                     AI Threat Detection
@@ -115,9 +117,9 @@ export function HeroSection({
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="rounded-2xl border border-white/40 bg-white/70 p-4 text-center shadow-sm"
+                    className="glass-chip rounded-2xl p-4 text-center"
                   >
-                    <div className="font-heading text-2xl font-semibold text-[var(--surface-inverse)]">
+                    <div className="font-heading text-2xl font-semibold text-[var(--text-strong)]">
                       {item.value}
                     </div>
                     <div className="text-xs uppercase tracking-[0.3em] text-[var(--text-muted)]">
