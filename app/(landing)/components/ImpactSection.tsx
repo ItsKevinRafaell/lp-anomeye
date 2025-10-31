@@ -35,22 +35,28 @@ export function ImpactSection({
           <p className="text-lg text-[var(--text-muted)]">{narrative}</p>
         </div>
         <div className="grid flex-1 gap-6 sm:grid-cols-2">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="glass-card rounded-3xl p-8"
-            >
-              <div className="font-heading text-4xl font-semibold text-[var(--brand-primary-strong)]">
-                {stat.value}
+          {stats.map((stat, index) => {
+            const cardStyles =
+              index % 2 === 0
+                ? "glass-card glass-variant-a rounded-3xl p-8"
+                : "surface-card rounded-3xl p-8";
+            return (
+              <div
+                key={stat.label}
+                className={`${cardStyles} transition duration-200 hover:-translate-y-0.5 hover:border-[var(--brand-primary)]/45`}
+              >
+                <div className="font-heading text-4xl font-semibold text-[var(--brand-primary-strong)]">
+                  {stat.value}
+                </div>
+                <div className="mt-3 text-sm uppercase tracking-[0.35em] text-[var(--text-muted)]">
+                  {stat.label}
+                </div>
+                <p className="mt-4 text-base text-[var(--text-muted)]">
+                  {stat.descriptor}
+                </p>
               </div>
-              <div className="mt-3 text-sm uppercase tracking-[0.35em] text-[var(--text-muted)]">
-                {stat.label}
-              </div>
-              <p className="mt-4 text-base text-[var(--text-muted)]">
-                {stat.descriptor}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

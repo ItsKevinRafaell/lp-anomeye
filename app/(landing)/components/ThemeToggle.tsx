@@ -56,11 +56,11 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       aria-label="Toggle color scheme"
       aria-pressed={theme === "dark"}
-      className="glass-chip inline-flex min-w-[120px] items-center justify-center gap-2 rounded-full px-4 py-2 font-heading text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-primary)] transition duration-200 hover:border-[var(--brand-primary)] hover:text-[var(--text-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]"
+      className="glass-chip inline-flex min-w-[80px] items-center justify-center gap-1.5 rounded-full px-3.5 py-1.5 font-heading text-[0.6rem] font-semibold uppercase tracking-[0.26em] text-[var(--text-primary)] transition duration-200 hover:border-[var(--brand-primary)] hover:text-[var(--text-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]"
       disabled={!mounted}
     >
-      <span className="h-2 w-2 rounded-full bg-[var(--brand-primary)]" />
-      {theme === "dark" ? "Light Mode" : "Dark Mode"}
+      <span className="h-2 w-2 rounded-full bg-[var(--brand-primary)] shadow-[0_0_8px_var(--brand-highlight)]" />
+      {theme === "dark" ? "Light" : "Dark"}
     </button>
   );
 }

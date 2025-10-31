@@ -27,24 +27,36 @@ export function Timeline({ id, eyebrow, headline, steps }: TimelineProps) {
         </div>
         <div className="relative grid gap-10 md:grid-cols-4">
           <div className="pointer-events-none absolute inset-x-8 top-12 hidden h-px bg-gradient-to-r from-transparent via-[var(--border-subtle)] to-transparent md:block" />
-          {steps.map((step, index) => (
-            <div
-              key={step.title}
-              className="glass-card group relative flex flex-col gap-4 rounded-3xl p-6 text-left transition duration-200 hover:-translate-y-1 hover:border-[var(--brand-primary)] hover:shadow-[var(--shadow-glass)]"
-            >
-              <div className="flex items-center gap-3">
-                <span className="glass-chip flex h-10 w-10 items-center justify-center rounded-full border border-[var(--brand-primary)]/30 bg-transparent font-heading text-sm font-semibold text-[var(--brand-primary-strong)] shadow-none">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-heading text-xl text-[var(--text-strong)]">
-                  {step.title}
-                </h3>
+          {steps.map((step, index) => {
+            const cardClass =
+              index % 2 === 0
+                ? "glass-card glass-variant-d"
+                : "surface-card";
+            const chipClass =
+              index % 2 === 0
+                ? "glass-chip glass-variant-b"
+                : "surface-chip";
+            return (
+              <div
+                key={step.title}
+                className={`${cardClass} group relative flex flex-col gap-4 rounded-3xl p-6 text-left transition duration-200 hover:-translate-y-0.5 hover:border-[var(--brand-primary)]/45`}
+              >
+                <div className="flex items-center gap-3">
+                  <span
+                    className={`${chipClass} flex h-10 w-10 items-center justify-center rounded-full font-heading text-sm font-semibold text-[var(--brand-primary-strong)] transition duration-200 hover:border-[var(--brand-primary)]/60`}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-heading text-xl text-[var(--text-strong)]">
+                    {step.title}
+                  </h3>
+                </div>
+                <p className="text-sm text-[var(--text-muted)]">
+                  {step.description}
+                </p>
               </div>
-              <p className="text-sm text-[var(--text-muted)]">
-                {step.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

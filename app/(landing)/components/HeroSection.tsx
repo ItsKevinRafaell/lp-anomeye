@@ -46,7 +46,7 @@ export function HeroSection({
             {bullets.map((bullet) => (
               <li
                 key={bullet}
-                className="glass-chip flex items-start gap-3 rounded-2xl px-4 py-3 text-sm"
+                className="surface-chip flex items-start gap-3 rounded-2xl px-4 py-3 text-sm hover:border-[var(--brand-primary)]/40"
               >
                 <span className="mt-1 h-2 w-2 rounded-full bg-[var(--brand-primary)]" />
                 <span className="font-medium">{bullet}</span>
@@ -56,14 +56,14 @@ export function HeroSection({
           <div className="flex flex-col gap-4 sm:flex-row">
             <Link
               href={primaryCta.href}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--brand-primary)] px-8 py-3 font-heading text-sm font-semibold uppercase tracking-[0.25em] text-white transition duration-200 hover:bg-[var(--brand-primary-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]"
+              className="glass-chip glass-variant-a inline-flex items-center justify-center gap-2 rounded-full border border-[var(--brand-primary)]/60 bg-[var(--brand-primary)]/18 px-7 py-3 font-heading text-sm font-semibold uppercase tracking-[0.22em] text-[var(--brand-primary-strong)] transition duration-200 hover:border-[var(--brand-primary)] hover:bg-[var(--brand-primary)]/26 hover:text-[var(--text-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]"
             >
               {primaryCta.label}
             </Link>
             {secondaryCta ? (
               <Link
                 href={secondaryCta.href}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--brand-primary)] px-8 py-3 font-heading text-sm font-semibold uppercase tracking-[0.25em] text-[var(--brand-primary)] transition duration-200 hover:border-[var(--brand-primary-strong)] hover:text-[var(--brand-primary-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]"
+                className="surface-chip inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 font-heading text-sm font-semibold uppercase tracking-[0.22em] text-[var(--text-muted)] transition duration-200 hover:border-[var(--brand-primary)]/50 hover:text-[var(--brand-primary-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]"
               >
                 {secondaryCta.label}
               </Link>
@@ -71,7 +71,7 @@ export function HeroSection({
           </div>
         </div>
         <div className="relative flex-1">
-          <div className="glass-card relative overflow-hidden rounded-3xl p-8">
+          <div className="glass-card glass-variant-b relative overflow-hidden rounded-3xl p-8">
             <div className="absolute inset-x-8 inset-y-10 rounded-3xl border border-[var(--glass-border-subtle)]" />
             <div className="relative space-y-4 text-sm text-[var(--text-muted)]">
               <div className="flex items-center justify-between">
@@ -82,7 +82,7 @@ export function HeroSection({
                   Live
                 </span>
               </div>
-              <div className="glass-chip grid gap-3 rounded-2xl p-4 shadow-none">
+              <div className="surface-card grid gap-3 rounded-2xl p-4 shadow-none">
                 <div className="flex items-center justify-between">
                   <span className="font-heading text-sm text-[var(--text-primary)]">
                     AI Threat Detection
@@ -117,7 +117,7 @@ export function HeroSection({
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="glass-chip rounded-2xl p-4 text-center"
+                    className="surface-chip rounded-2xl p-4 text-center hover:border-[var(--brand-highlight)]/40"
                   >
                     <div className="font-heading text-2xl font-semibold text-[var(--text-strong)]">
                       {item.value}

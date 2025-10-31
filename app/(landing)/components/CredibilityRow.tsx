@@ -18,7 +18,7 @@ export function CredibilityRow({ id, headline, items }: CredibilityRowProps) {
           {items.map((item) => (
             <div
               key={item}
-              className="glass-chip flex h-16 items-center justify-center rounded-2xl px-4 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--text-muted)]"
+              className="surface-chip flex h-16 items-center justify-center rounded-2xl px-4 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--text-muted)] transition duration-200 hover:border-[var(--brand-primary)]/40 hover:text-[var(--text-strong)]"
             >
               {item}
             </div>

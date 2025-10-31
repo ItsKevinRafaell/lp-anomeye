@@ -37,23 +37,29 @@ export function FeatureGrid({
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-3">
-          {features.map((feature) => (
-            <article
-              key={feature.title}
-              className="glass-card group flex flex-col gap-5 rounded-3xl p-8 transition duration-200 hover:-translate-y-1 hover:border-[var(--brand-primary)] hover:shadow-[var(--shadow-glass)]"
-            >
-              <span className="inline-flex w-fit items-center rounded-full bg-[var(--brand-primary)]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-primary-strong)]">
-                {feature.pill}
-              </span>
-              <h3 className="font-heading text-2xl text-[var(--text-strong)]">
-                {feature.title}
-              </h3>
-              <p className="text-base text-[var(--text-muted)]">
-                {feature.description}
-              </p>
-              <div className="mt-auto h-0.5 w-12 bg-[var(--brand-primary)] transition group-hover:w-16" />
-            </article>
-          ))}
+          {features.map((feature, index) => {
+            const cardClasses =
+              index % 2 === 0
+                ? "glass-card glass-variant-b"
+                : "surface-card";
+            return (
+              <article
+                key={feature.title}
+                className={`${cardClasses} group flex flex-col gap-5 rounded-3xl p-8 transition duration-200 hover:-translate-y-0.5 hover:border-[var(--brand-primary)]/50`}
+              >
+                <span className="inline-flex w-fit items-center rounded-full bg-[var(--brand-primary)]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-primary-strong)]">
+                  {feature.pill}
+                </span>
+                <h3 className="font-heading text-2xl text-[var(--text-strong)]">
+                  {feature.title}
+                </h3>
+                <p className="text-base text-[var(--text-muted)]">
+                  {feature.description}
+                </p>
+                <div className="mt-auto h-0.5 w-12 bg-[var(--brand-primary)] transition group-hover:w-16" />
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

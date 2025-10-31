@@ -51,7 +51,7 @@ export function TestimonialCarousel({
         <h2 className="font-heading text-3xl font-semibold text-[var(--text-strong)] sm:text-4xl">
           {headline}
         </h2>
-        <div className="glass-card relative overflow-hidden rounded-3xl p-10">
+        <div className="surface-card relative overflow-hidden rounded-3xl p-10 transition duration-200 hover:-translate-y-1 hover:border-[var(--brand-primary)]/45">
           <blockquote className="space-y-6">
             <p className="text-xl italic text-[var(--text-strong)]">
               &ldquo;{active.quote}&rdquo;
@@ -69,7 +69,7 @@ export function TestimonialCarousel({
             <button
               type="button"
               onClick={handlePrev}
-              className="glass-chip rounded-full px-5 py-2 font-heading text-[var(--brand-primary)] transition duration-200 hover:border-[var(--brand-primary-strong)] hover:text-[var(--brand-primary-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]"
+              className="surface-chip rounded-full px-5 py-2 font-heading text-[var(--brand-primary)] transition duration-200 hover:border-[var(--brand-primary-strong)]/60 hover:text-[var(--brand-primary-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]"
             >
               Prev
             </button>
@@ -80,7 +80,7 @@ export function TestimonialCarousel({
             <button
               type="button"
               onClick={handleNext}
-              className="glass-chip rounded-full px-5 py-2 font-heading text-[var(--brand-primary)] transition duration-200 hover:border-[var(--brand-primary-strong)] hover:text-[var(--brand-primary-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]"
+              className="surface-chip rounded-full px-5 py-2 font-heading text-[var(--brand-primary)] transition duration-200 hover:border-[var(--brand-primary-strong)]/60 hover:text-[var(--brand-primary-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]"
             >
               Next
             </button>

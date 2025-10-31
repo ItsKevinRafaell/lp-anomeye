@@ -31,19 +31,25 @@ export function ServicesSection({
           </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
-          {services.map((service) => (
-            <article
-              key={service.title}
-              className="glass-card rounded-3xl p-8 text-left transition duration-200 hover:-translate-y-1 hover:border-[var(--brand-primary)] hover:shadow-[var(--shadow-glass)]"
-            >
-              <h3 className="font-heading text-xl text-[var(--text-strong)]">
-                {service.title}
-              </h3>
-              <p className="mt-4 text-sm text-[var(--text-muted)]">
-                {service.description}
-              </p>
-            </article>
-          ))}
+          {services.map((service, index) => {
+            const isGlass = index % 3 === 1;
+            const cardClass = isGlass
+              ? "glass-card glass-variant-a"
+              : "surface-card";
+            return (
+              <article
+                key={service.title}
+                className={`${cardClass} rounded-3xl p-8 text-left transition duration-200 hover:-translate-y-0.5 hover:border-[var(--brand-primary)]/45`}
+              >
+                <h3 className="font-heading text-xl text-[var(--text-strong)]">
+                  {service.title}
+                </h3>
+                <p className="mt-4 text-sm text-[var(--text-muted)]">
+                  {service.description}
+                </p>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

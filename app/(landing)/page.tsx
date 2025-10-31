@@ -13,11 +13,11 @@ import { ThemeToggle } from "./components/ThemeToggle";
 import { Timeline } from "./components/Timeline";
 
 const navLinks = [
-  { label: "Why Anomeye", href: "#why-integrated" },
-  { label: "ROI", href: "#roi-impact" },
-  { label: "Lifecycle", href: "#solution-walkthrough" },
-  { label: "Services", href: "#exclusive-services" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Why", aria: "Why Anomeye", href: "#why-integrated" },
+  { label: "ROI", aria: "Return on Investment", href: "#roi-impact" },
+  { label: "Flow", aria: "Solution Lifecycle", href: "#solution-walkthrough" },
+  { label: "Services", aria: "Exclusive Services", href: "#exclusive-services" },
+  { label: "Voices", aria: "Client Testimonials", href: "#testimonials" },
 ];
 
 const heroBullets = [
@@ -156,30 +156,31 @@ const legalLinks = [
 export default function LandingPage() {
   return (
     <div className="min-h-screen text-[var(--text-primary)]">
-      <header className="sticky top-0 z-50 px-6 pt-8 sm:px-10 lg:px-16">
-        <div className="glass-panel mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full px-6 py-4">
+      <header className="sticky top-0 z-50 px-4 pt-5 sm:px-6 lg:px-8">
+        <div className="glass-panel mx-auto flex max-w-4xl items-center justify-between gap-2.5 rounded-full px-5 py-3">
           <Link
             href="#hero"
-            className="font-heading text-sm font-semibold uppercase tracking-[0.4em] text-[var(--text-strong)]"
+            className="font-heading text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-[var(--text-strong)]"
           >
             Anomeye
           </Link>
-          <nav className="hidden items-center gap-8 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--text-muted)] md:flex">
+          <nav className="hidden items-center gap-4 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-[var(--text-muted)] md:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
+                aria-label={link.aria}
                 className="transition duration-200 hover:text-[var(--text-strong)]"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <ThemeToggle />
             <Link
               href="#enterprise-cta"
-              className="hidden rounded-full bg-[var(--brand-primary)] px-6 py-2 font-heading text-xs font-semibold uppercase tracking-[0.3em] text-white transition duration-200 hover:bg-[var(--brand-primary-strong)] md:inline-flex"
+              className="hidden rounded-full border border-[var(--brand-primary)]/50 bg-[var(--brand-primary)]/15 px-5 py-2 font-heading text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-[var(--brand-primary-strong)] transition duration-200 hover:border-[var(--brand-primary)] hover:bg-[var(--brand-primary)]/25 md:inline-flex"
             >
               Request Enterprise Demo
             </Link>
